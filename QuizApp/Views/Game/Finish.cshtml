@@ -1,0 +1,118 @@
+﻿@model Tuple<int, List<QuizApp.Models.User>>
+
+@{
+    ViewData["Title"] = "Game Finished";
+    ViewData["HideNavbar"] = true;
+
+    int userScore = Model.Item1;
+    List<QuizApp.Models.User> leaderboard = Model.Item2;
+    int currentUserId = ViewBag.CurrentUserId != null ? (int)ViewBag.CurrentUserId : 0;
+    int correctAnswers = (int)ViewBag.CorrectAnswers;  
+}
+
+<div class="container">
+    <h2>Congratulations!</h2>
+    <p class="message">You have completed the quiz.</p>
+    <p class="score-text">Your final score is: <strong>@userScore</strong></p>
+    <p class="correct-answers-text">You answered <strong>@correctAnswers</strong> questions correctly!</p>  <!-- Afișăm numărul de întrebări corecte -->
+
+    <h3>Leaderboard</h3>
+    <div class="leaderboard">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in leaderboard)
+                {
+                    <tr class="@(user.Id == currentUserId ? "highlight" : "")">
+                        <td>@(leaderboard.IndexOf(user) + 1)</td>
+                        <td>@user.Username</td>
+                        <td>@user.TotalScore</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/Profile/Index" class="btn">Go back to Profile</a>
+</div>
+
+<style>
+    .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .message {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .score-text {
+        font-size: 22px;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .correct-answers-text {
+        font-size: 18px;
+        color: #28a745;
+        margin-bottom: 20px;
+    }
+
+    .leaderboard {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .highlight {
+        background-color: #ffeb3b;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+</style>

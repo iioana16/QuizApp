@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Start Game";
+    ViewData["HideNavbar"] = true;
+}
+
+<div class="start-game-container">
+    <div class ="dashboard-card h-card">
+        <h2>Welcome to the Quiz Game!</h2>
+    </div>
+
+    <div class="dashboard-card difficulty-card">
+        <p class="message">Choose your difficulty level</p>
+
+        <form method="post" action="/Game/SetDifficulty">
+            @Html.AntiForgeryToken()
+
+            <label class="difficulty-label">Select difficulty:</label>
+            <div class="difficulty-options">
+                <label>
+                    <input type="radio" name="difficulty" value="1" checked> Easy
+                </label>
+                <label>
+                    <input type="radio" name="difficulty" value="2"> Medium
+                </label>
+                <label>
+                    <input type="radio" name="difficulty" value="3"> Hard
+                </label>
+            </div>
+
+            <button type="submit" class="button start-button">Start Game</button>
+        </form>
+    </div>
+</div>
+
+<style>
+
+    h2{
+        color: white;
+    }
+
+    .start-game-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+        padding: 40px;
+    }
+
+    .dashboard-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+        transition: transform 0.3s;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .h-card{
+        background-color: #007bff;
+    }
+
+    .difficulty-card {
+        background-color: #f1f1f1;
+    }
+
+    .difficulty-label {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: block;
+        color: #333;
+    }
+
+    .difficulty-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+        .difficulty-options label {
+            font-size: 16px;
+            color: #555;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-options input {
+            margin-right: 10px;
+        }
+
+        .difficulty-options label:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    .button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-bottom: 15px;
+        transition: background-color 0.3s;
+    }
+
+    .start-button {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .start-button:hover {
+            background-color: #0056b3;
+        }
+
+    .message {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+</style>

@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|d:\\studii\\master\\an_i\\1.2.tehnologii_moderne_de_programare\\quizapp\\quizapp\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|d:\\studii\\master\\an_i\\1.2.tehnologii_moderne_de_programare\\quizapp\\quizapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|d:\\studii\\master\\an_i\\1.2.tehnologii_moderne_de_programare\\quizapp\\quizapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|d:\\studii\\master\\an_i\\1.2.tehnologii_moderne_de_programare\\quizapp\\quizapp\\views\\game\\start.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11598B12-2429-42AE-8BD3-AD613CA9C27E}|QuizApp\\QuizApp.csproj|solutionrelative:quizapp\\views\\game\\start.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Program.cs",
+              "RelativeDocumentMoniker": "QuizApp\\Program.cs",
+              "ToolTip": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Program.cs",
+              "RelativeToolTip": "QuizApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T19:21:52.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Controllers\\GameController.cs",
+              "RelativeDocumentMoniker": "QuizApp\\Controllers\\GameController.cs",
+              "ToolTip": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Controllers\\GameController.cs",
+              "RelativeToolTip": "QuizApp\\Controllers\\GameController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:04:34.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QuizApp\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QuizApp\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T12:39:48.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Start.cshtml",
+              "DocumentMoniker": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Views\\Game\\Start.cshtml",
+              "RelativeDocumentMoniker": "QuizApp\\Views\\Game\\Start.cshtml",
+              "ToolTip": "D:\\STUDII\\MASTER\\AN_I\\1.2.Tehnologii_moderne_de_programare\\QuizApp\\QuizApp\\Views\\Game\\Start.cshtml",
+              "RelativeToolTip": "QuizApp\\Views\\Game\\Start.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-07T01:04:04.922Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

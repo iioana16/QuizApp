@@ -1,0 +1,141 @@
+﻿@model QuizApp.Models.User
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["HideNavbar"] = true;
+}
+
+<div class="dashboard-container">
+
+    <div class="dashboard-card profile-card">
+        <h1>@Model.Username</h1>
+        <p>Total Score: @Model.TotalScore</p>
+    </div>
+
+    <div class="dashboard-card start-game-card">
+        <h2>Ready for a new challenge? Let's start!</h2>
+        <form method="post" action="/Game/Start">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="button start-button">Start New Game</button>
+        </form>
+    </div>
+
+    <div class="dashboard-card previous-scores-card">
+        <h2 style="color: #007bff">Previous Scores</h2>
+        @if (ViewBag.PreviousResults != null && ViewBag.PreviousResults.Count > 0)
+        {
+            <ul>
+                @foreach (var result in ViewBag.PreviousResults)
+                {
+                    <li>
+                        @result.Quiz.Title - Score: @result.Score 
+                        @* - Date: @result.DateCompleted.ToShortDateString() *@
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No previous scores available.</p>
+        }
+    </div>
+
+    <div class="logout-card" onclick="location.href='/Account/Logout'">
+        Logout
+    </div>
+
+</div>
+
+<style>
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+        padding: 40px;
+    }
+
+    .logout-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        background-color: #f1f1f1;
+        color: #dc3545;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+        transition: transform 0.3s;
+    }
+
+        .logout-card:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+    .dashboard-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+        transition: transform 0.3s;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .profile-card {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .profile-card h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .profile-card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+    .start-game-card {
+        background-color: #f1f1f1;
+    }
+
+    .previous-scores-card {
+        background-color: #f1f1f1;
+    }
+
+    .button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-bottom: 15px;
+        transition: background-color 0.3s;
+    }
+
+    .start-button {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .start-button:hover {
+            background-color: #0056b3;
+        }
+
+    .message {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+</style>

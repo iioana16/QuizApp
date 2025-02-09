@@ -1,0 +1,184 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["HideNavbar"] = true;
+}
+
+<div class="admin-container">
+    <div class="dashboard-card h-card">
+        <h2>Admin Dashboard</h2>
+    </div>
+
+    <div class="dashboard-card form-card">
+        <p class="message">Add a new question</p>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success">@ViewBag.Message</div>
+        }
+
+        <form method="post" action="/Admin/AddQuestion">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="quizId" class="difficulty-label">Select Difficulty Level:</label>
+                <select class="form-control" id="quizId" name="quizId" required>
+                    <option value="">-- Choose Difficulty --</option>
+                    @foreach (var quiz in ViewBag.Quizzes)
+                    {
+                        <option value="@quiz.Id">@quiz.Title (@quiz.DifficultyLevel)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="questionText" class="difficulty-label">Question:</label>
+                <input type="text" class="form-control" id="questionText" name="questionText" required>
+            </div>
+
+            <div class="form-group">
+                <label class="difficulty-label">Answers:</label>
+
+                @for (int i = 1; i <= 4; i++)
+                {
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="answer@(i)" required>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="correctAnswer" value="@i" @(i == 1 ? "required" : "")>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <button type="submit" class="button start-button">Add Question</button>
+        </form>
+    </div>
+
+    <div class="dashboard-card switch-card">
+        <h2>Switch to player mode and join the fun!</h2>
+        <form method="post" action="/Profile/Index">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="button start-button">Start</button>
+        </form>
+    </div>
+
+    <div class="logout-card" onclick="location.href='/Account/Logout'">
+        Logout
+    </div>
+</div>
+
+<style>
+    h2 {
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .admin-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;
+        background-color: white;
+        padding: 40px;
+    }
+
+    .dashboard-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+        transition: transform 0.3s;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .h-card {
+        background-color: #007bff;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .form-card {
+        background-color: #f1f1f1;
+        padding: 20px;
+    }
+
+    .switch-card {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .difficulty-label {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: block;
+        color: #333;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .input-group-text {
+        background-color: #ddd;
+        border: none;
+    }
+
+    .button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 15px;
+        transition: background-color 0.3s;
+    }
+
+    .start-button {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .start-button:hover {
+            background-color: #0056b3;
+        }
+
+    .message {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .logout-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #f1f1f1;
+        color: #dc3545;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+        transition: transform 0.3s, background-color 0.3s;
+        cursor: pointer;
+    }
+
+        .logout-card:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+</style>

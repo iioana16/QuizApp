@@ -1,0 +1,122 @@
+﻿@model QuizApp.Models.User
+@{
+    ViewData["Title"] = "Register";
+    ViewData["HideNavbar"] = true;
+}
+
+<style>
+    .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .register-form {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .form-title {
+        color: #007bff;
+        text-align: left;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .form-button:hover {
+            background-color: #0056b3;
+        }
+
+    .signin-link {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .error-message {
+        color: red;
+        text-align: center;
+    }
+
+    .helper-text {
+        font-size: 0.9em;
+        color: #888;
+    }
+</style>
+
+<div class="register-container">
+    <form method="post" action="/Account/Register" class="register-form">
+        @Html.AntiForgeryToken()
+
+        <h2 class="form-title">Sign up</h2><br />
+
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="Username" value="@Model.Username" required class="form-input" />
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" value="@Model.Email" required class="form-input" />
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="Password" required class="form-input" />
+            @Html.ValidationMessageFor(model => model.Password)
+            <p class="helper-text">ex. P@ssw0rd</p>
+        </div>
+
+        <div class="form-group">
+            <label for="repeatpassword">Repeat password:</label>
+            <input type="password" id="repeatpassword" name="RepeatPassword" required class="form-input" />
+            @Html.ValidationMessageFor(model => model.RepeatPassword)
+        </div><br />
+
+        <button type="submit" class="form-button">Sign up</button>
+
+        <div class="signin-link">
+            <span>Have an account?</span>
+            <a href="/Account/Login" class="link">Sign in</a>
+        </div>
+
+        @if (ViewBag.Message != null)
+        {
+            <p class="error-message">@ViewBag.Message</p>
+        }
+    </form>
+</div>
