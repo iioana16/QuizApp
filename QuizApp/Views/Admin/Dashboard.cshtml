@@ -11,9 +11,9 @@
     <div class="dashboard-card form-card">
         <p class="message">Add a new question</p>
 
-        @if (ViewBag.Message != null)
+        @if (TempData["MessageAdd"] != null)
         {
-            <div class="alert alert-success">@ViewBag.Message</div>
+            <div class="alert alert-success">@TempData["MessageAdd"]</div>
         }
 
         <form method="post" action="/Admin/AddQuestion">
@@ -63,6 +63,47 @@
         </form>
     </div>
 
+    <div class="dashboard-card">
+        <h3>Manage Questions</h3>
+
+        @if (TempData["MessageDelete"] != null)
+        {
+            <div class="alert alert-danger">@TempData["MessageDelete"]</div>
+        }
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.Questions != null && ((List<Question>)ViewBag.Questions).Count > 0)
+                {
+                    @foreach (var question in ViewBag.Questions)
+                    {
+                        <tr>
+                            <td>@question.QuestionText</td>
+                            <td>
+                                <form method="post" action="/Admin/DeleteQuestion">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="questionId" value="@question.Id" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No questions found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
     <div class="logout-card" onclick="location.href='/Account/Logout'">
         Logout
     </div>
@@ -71,6 +112,13 @@
 <style>
     h2 {
         color: white;
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+    }
+
+    h3{
+        color: #007bff;
         text-align: center;
         margin: 0;
         padding: 10px;

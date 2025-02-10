@@ -15,8 +15,8 @@ namespace QuizApp.Controllers
 
         public IActionResult Dashboard()
         {
-            //trimite lista de dificultati catre view
             ViewBag.Quizzes = _context.Quizzes.ToList();
+            ViewBag.Questions = _context.Questions.ToList();
             return View();
         }
 
@@ -31,7 +31,7 @@ namespace QuizApp.Controllers
                 return View("Dashboard");
             }
 
-            // adauga întrebarea
+            // adauga intrebarea
             var newQuestion = new Question
             {
                 QuizId = quizId,
@@ -41,7 +41,7 @@ namespace QuizApp.Controllers
             _context.Questions.Add(newQuestion);
             _context.SaveChanges();
 
-            // adauag raspunsurile
+            // adauga raspunsurile
             var answers = new List<Answer>
             {
                 new Answer { QuestionId = newQuestion.Id, AnswerText = answer1, IsCorrect = (correctAnswer == 1) },
@@ -53,9 +53,27 @@ namespace QuizApp.Controllers
             _context.Answers.AddRange(answers);
             _context.SaveChanges();
 
-            ViewBag.Message = "Question added successfully!";
+            TempData["MessageAdd"] = "Question added successfully!";
             ViewBag.Quizzes = _context.Quizzes.ToList();
-            return View("Dashboard");
+            return RedirectToAction("Dashboard");
+            //ViewBag.Message = "Question added successfully!";
+            //return View("Dashboard");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteQuestion(int questionId)
+        {
+            var question = _context.Questions.FirstOrDefault(q => q.Id == questionId);
+            if (question != null)
+            {
+                var answers = _context.Answers.Where(a => a.QuestionId == questionId);
+                _context.Answers.RemoveRange(answers);
+                _context.Questions.Remove(question);
+                _context.SaveChanges();
+
+                TempData["MessageDelete"] = "Question deleted successfully!";
+            }
+            return RedirectToAction("Dashboard");
         }
     }
 }

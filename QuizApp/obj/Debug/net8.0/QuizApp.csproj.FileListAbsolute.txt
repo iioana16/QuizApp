@@ -144,3 +144,4 @@ D:\STUDII\MASTER\AN_I\1.2.Tehnologii_moderne_de_programare\QuizApp\QuizApp\obj\D
 D:\STUDII\MASTER\AN_I\1.2.Tehnologii_moderne_de_programare\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.pdb
 D:\STUDII\MASTER\AN_I\1.2.Tehnologii_moderne_de_programare\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.genruntimeconfig.cache
 D:\STUDII\MASTER\AN_I\1.2.Tehnologii_moderne_de_programare\QuizApp\QuizApp\obj\Debug\net8.0\ref\QuizApp.dll
+D:\STUDII\MASTER\AN_I\1.2.Tehnologii_moderne_de_programare\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.sourcelink.json
